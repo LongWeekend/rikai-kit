@@ -7,19 +7,11 @@ Returns an array of possible variants using the 'deinflect' instance method.
 
     #import "Deinflector.h"
 
-    NSArray *variants;
-    
-    Deinflector *deinflector = [[Deinflector alloc] init];
-    variants = [deinflector deinflect:word];
-
-    // Log the deinflected variants of the word
+    NSArray *variants = [Deinflector sharedInstance deinflect:word];
     for (DeinflectorRuleMatch *variant in variants) {
-      NSLog(@"Deinflected variant: %@", [variant word]);
+      NSLog(@"Deinflected variant: %@", [variant word], [variant reasonString]);
     }
     
 #### Dependencies
 
-1. LWE Development Tools for custom logging (or just remove NSLog calls).
-2. Deinflection rules from the Rikaichan Firefox add-on by J. Zarate (LGPL, www.polarcloud.com)
-
-NB: GTMSenTest is needed for testing, but you won't not need it unless you're creating RikaiKit Tests!
+The de-inflection rules are taken from the Rikaichan Firefox add-on by J. Zarate (LGPL, www.polarcloud.com)
