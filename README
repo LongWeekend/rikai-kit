@@ -7,7 +7,7 @@ Returns an array of possible variants using the 'deinflect' instance method.
 
     #import "Deinflector.h"
 
-    NSArray *variants = [Deinflector sharedInstance deinflect:word];
+    NSArray *variants = [[Deinflector sharedInstance] deinflect:word];
     for (DeinflectorRuleMatch *variant in variants) {
       NSLog(@"Deinflected variant: %@", [variant word], [variant reasonString]);
     }
